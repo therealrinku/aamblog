@@ -1,0 +1,26 @@
+.createPage {
+  width: 75%;
+  margin: auto;
+  margin-top: 80px;
+}
+
+.createPage form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.createPage form label {
+  margin-top: 10px;
+}
+
+.createPage form input,
+.createPage form textarea {
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  padding: 10px 5px;
+  outline: none;
+  margin-top: 10px;
+  font-family: inherit;
+  max-width: 100%;
+  min-width: 100%;
+}
