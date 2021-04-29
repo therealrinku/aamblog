@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     setLoading(true);
-    db.collection("test").onSnapshot((snap) => {
+    db.collection("blogs").onSnapshot((snap) => {
       const data = [];
       snap.docs.forEach((doc) => {
         data.push(doc.data());
