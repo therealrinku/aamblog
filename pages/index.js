@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import homeStyles from "../styles/home.module.css";
+import db from "../firebase/db";
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
@@ -8,14 +9,14 @@ export default function Home() {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
-      fetch("https://jsonplaceholder.typicode.com/users")
-        .then((res) => res.json())
-        .then((data) => {
-          setLoading(false);
-          setBlogs(data);
-        });
-    }, 3000);
+    db.collection("test").onSnapshot((snap) => {
+      const data = [];
+      snap.docs.forEach((doc) => {
+        data.push(doc.data());
+      });
+      setBlogs(data);
+      setLoading(false);
+    });
   }, []);
   return (
     <div className={homeStyles.home}>
@@ -29,7 +30,7 @@ export default function Home() {
         blogs.map((blog, i) => {
           return (
             <p className={homeStyles.post} key={i}>
-              {blog.name}
+              {blog.title}
             </p>
           );
         })
