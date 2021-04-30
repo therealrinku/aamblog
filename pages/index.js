@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import Head from "next/head";
 import homeStyles from "../styles/home.module.css";
 import db from "../firebase/db";
+import Card from "../components/Card";
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
@@ -13,7 +13,7 @@ export default function Home() {
     db.collection("blogs").onSnapshot((snap) => {
       const data = [];
       snap.docs.forEach((doc) => {
-        data.push(doc.data());
+        data.push({ ...doc.data(), id: doc.id });
       });
       setBlogs(data);
       setLoading(false);
@@ -30,11 +30,7 @@ export default function Home() {
       ) : (
         <div className={homeStyles.blogs}>
           {blogs.map((blog, i) => {
-            return (
-              <Link href={`/blog/${blog.title}`} key={i}>
-                {blog.title}
-              </Link>
-            );
+            return <Card blogTitle={blog.title} key={i} blogId={blog.id} />;
           })}
         </div>
       )}
