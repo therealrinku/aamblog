@@ -1,0 +1,9 @@
+.Blog {
+  width: 75%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.Blog p {
+  white-space: pre-wrap;
+}
