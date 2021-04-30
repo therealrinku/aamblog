@@ -4,13 +4,15 @@
   margin-top: 80px;
 }
 
-.post {
+.blogs {
+  display: flex;
+  flex-direction: column;
+}
+
+.home a {
   border: solid 1px black;
   border-radius: 5px;
   padding: 10px;
   font-size: 15px;
-}
-
-.post:hover {
-  cursor: pointer;
+  margin-top: 10px;
 }

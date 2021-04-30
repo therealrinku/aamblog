@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Head from "next/head";
 import homeStyles from "../styles/home.module.css";
 import db from "../firebase/db";
@@ -27,13 +28,15 @@ export default function Home() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        blogs.map((blog, i) => {
-          return (
-            <p className={homeStyles.post} key={i}>
-              {blog.title}
-            </p>
-          );
-        })
+        <div className={homeStyles.blogs}>
+          {blogs.map((blog, i) => {
+            return (
+              <Link href={`/blog/${blog.title}`} key={i}>
+                {blog.title}
+              </Link>
+            );
+          })}
+        </div>
       )}
     </div>
   );
