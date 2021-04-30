@@ -30,7 +30,7 @@ export default function Home() {
       ) : (
         <div className={homeStyles.blogs}>
           {blogs.map((blog, i) => {
-            return <Card blogTitle={blog.title} key={i} blogId={blog.id} />;
+            return <Card blogTitle={blog.title} key={i} blogId={blog.id} blogDescription={blog.content} />;
           })}
         </div>
       )}

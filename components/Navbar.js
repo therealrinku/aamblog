@@ -10,20 +10,6 @@ const Navbar = () => {
       <ul>
         <Link href="/">An Attractive Mindset</Link>
       </ul>
-
-      <ul>
-        <Link href="/create">
-          <Tooltip title="Add new blog">
-            <AddIcon />
-          </Tooltip>
-        </Link>
-
-        <Tooltip title="Search">
-          <button className={navStyles.button}>
-            <SearchIcon />
-          </button>
-        </Tooltip>
-      </ul>
     </nav>
   );
 };

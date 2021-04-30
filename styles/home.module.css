@@ -8,11 +8,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.home a {
-  border: solid 1px black;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 15px;
-  margin-top: 10px;
-}
